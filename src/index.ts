@@ -17,7 +17,7 @@ app.post('/users', (request, response) => {
       .json({ message: 'Error: Make sure you nave email and name' });
   }
 
-  if (users.find((user) => (user.email = body.email))) {
+  if (users.find((user) => (user.email === body.email))) {
     return response.status(409).json({
       message: 'User with this email has already been added',
     });
