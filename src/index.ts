@@ -50,7 +50,7 @@ app.put('/users/:id', (req, res) => {
     });
   }
 
-  if (users.find((user) => user.email === body.email)) {
+  if (users.find((user) => user.email === body.email) && user.id !== id) {
     return res.status(409).json({
       message: 'User with this email has already been added',
     });
